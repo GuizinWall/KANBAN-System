@@ -1,0 +1,296 @@
+:root {
+    --bg-global: #060913;       /* Preto azulado profundo vindo do espaço */
+    --bg-quadro: #0d1527;       /* Base das colunas */
+    --bg-card: #121e36;         /* Estrutura dos cards */
+    --borda-tech: #1e3153;      /* Linhas de circuito padrão */
+    --texto-principal: #e2edfd; /* Branco azulado de alta emissão */
+    --texto-mutado: #637b9f;    /* Tom esmaecido tecnológico */
+    
+    /* Luzes e Emissões de Neon Cyber */
+    --neon-fazer: #00f0ff;      /* Ciano Elétrico */
+    --neon-andamento: #ffaa00;  /* Âmbar de Alerta */
+    --neon-concluido: #39ff14;  /* Verde Quântico */
+    --neon-excluir: #ff0055;    /* Vermelho Laser */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, 'Courier New', monospace;
+}
+
+body {
+    background-color: var(--bg-global);
+    color: var(--texto-principal);
+    padding: 40px 20px;
+    /* Linhas de varredura cibernéticas de fundo (Scanlines) */
+    background-image: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        radial-gradient(circle at 50% 20%, #17294d 0%, var(--bg-global) 80%);
+    background-size: 100% 4px, 100% 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Brilho no título principal */
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Formulário de Input Futurista */
+.formulario-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+.formulario-container input,
+.formulario-container select {
+    background-color: #080d1a;
+    color: #ffffff;
+    border: 1px solid var(--borda-tech);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.formulario-container input { flex: 1; }
+
+.formulario-container input:focus,
+.formulario-container select:focus {
+    outline: none;
+    border-color: var(--neon-fazer);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.formulario-container button {
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--neon-fazer);
+    border: 1px solid var(--neon-fazer);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+}
+
+.formulario-container button:hover {
+    background-color: var(--neon-fazer);
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+/* Painel de Indicadores e Barras */
+.indicadores-container {
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card-indicador {
+    flex: 1;
+    background: var(--bg-quadro);
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--borda-tech);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-mutated);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Luzes específicas de cada indicador */
+.card-indicador:nth-child(1) { border-color: rgba(0, 240, 255, 0.3); color: var(--neon-fazer); }
+.card-indicador:nth-child(2) { border-color: rgba(255, 170, 0, 0.3); color: var(--neon-andamento); }
+.card-indicador:nth-child(3) { border-color: rgba(57, 255, 20, 0.3); color: var(--neon-concluido); }
+
+.card-indicador span {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.card-indicador:nth-child(1) span { text-shadow: 0 0 10px var(--neon-fazer); }
+.card-indicador:nth-child(2) span { text-shadow: 0 0 10px var(--neon-andamento); }
+.card-indicador:nth-child(3) span { text-shadow: 0 0 10px var(--neon-concluido); }
+
+/* Barra de Emissão de Energia (Progresso) */
+.barra-progresso-container {
+    width: 100%;
+    background-color: #060913;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid var(--borda-tech);
+    overflow: hidden;
+}
+
+.barra-progresso {
+    height: 100%;
+    background-color: var(--neon-concluido);
+    box-shadow: 0 0 12px var(--neon-concluido), 0 0 4px var(--neon-concluido);
+    transition: width 0.4s ease;
+}
+
+/* Estrutura das Colunas do Quadro */
+.quadro-kanban {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.coluna {
+    background-color: var(--bg-quadro);
+    width: 340px;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--borda-tech);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.coluna h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Luzes nos títulos das colunas */
+.coluna:nth-child(1) h2 { color: var(--neon-fazer); text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); }
+.coluna:nth-child(2) h2 { color: var(--neon-andamento); text-shadow: 0 0 8px rgba(255, 170, 0, 0.4); }
+.coluna:nth-child(3) h2 { color: var(--neon-concluido); text-shadow: 0 0 8px rgba(57, 255, 20, 0.4); }
+
+.lista-tarefas {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Modificação nos Cards para virarem Células de Dados Cyber */
+.card-tarefa {
+    background-color: var(--bg-card);
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--borda-tech);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao passar o mouse sobre o card: ele acende em azul elétrico */
+.card-tarefa:hover {
+    transform: translateY(-2px);
+    border-color: var(--neon-fazer);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+/* Tags Cibernéticas de Prioridade */
+.tag-prioridade {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.card-tarefa p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--texto-principal);
+    margin-bottom: 16px;
+}
+
+/* Botões do Card Integrados */
+.botoes-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botoes-card button {
+    background: transparent;
+    border: 1px solid transparent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Botão Avançar Elétrico */
+.btn-mover {
+    color: var(--neon-fazer);
+    border-color: rgba(0, 240, 255, 0.2);
+}
+
+.btn-mover:hover {
+    background-color: rgba(0, 240, 255, 0.1);
+    border-color: var(--neon-fazer);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* Botão Excluir Laser */
+.btn-excluir {
+    color: var(--texto-mutado);
+    border-color: rgba(99, 123, 159, 0.2);
+}
+
+.btn-excluir:hover {
+    color: var(--neon-excluir);
+    border-color: var(--neon-excluir);
+    background-color: rgba(255, 0, 85, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+}
+
+/* Animação Cyberpunk para o Título Principal */
+.efeito-principal {
+    color: var(--neon-fazer);
+    text-shadow: 0 0 10px var(--neon-fazer), 0 0 20px rgba(0, 240, 255, 0.5);
+    animation: pulsoCibernetico 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoCibernetico {
+    0% {
+        text-shadow: 0 0 8px rgba(0, 240, 255, 0.6), 0 0 15px rgba(0, 240, 255, 0.3);
+        opacity: 0.9;
+    }
+    100% {
+        text-shadow: 0 0 18px rgba(0, 240, 255, 0.9), 0 0 35px rgba(0, 240, 255, 0.6);
+        opacity: 1;
+    }
+}

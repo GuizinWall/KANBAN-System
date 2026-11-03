@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Kanban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1><span class="efeito-principal">KANBAN</span> SYSTEM</h1>
+    </header>
+
+    <main>
+        <!-- Cadastro de Tarefas -->
+        <section class="formulario-container">
+            <input type="text" id="tituloTarefa" placeholder="Nova atividade...">
+            <select id="prioridadeTarefa">
+                <option value="Baixa">Prioridade Baixa</option>
+                <option value="Média">Prioridade Média</option>
+                <option value="Alta">Prioridade Alta</option>
+            </select>
+            <button onclick="adicionarTarefa()">Adicionar</button>
+        </section>
+
+        <!-- Indicadores Estruturados -->
+        <section class="indicadores-container">
+            <div class="indicadores">
+                <div class="card-indicador">A Fazer <span id="qtd-fazer">0</span></div>
+                <div class="card-indicador">Em Andamento <span id="qtd-andamento">0</span></div>
+                <div class="card-indicador">Concluído <span id="qtd-concluido">0</span></div>
+            </div>
+            <!-- Barra de Progresso Fluida -->
+            <div class="barra-progresso-container">
+                <div class="barra-progresso" id="progresso-total" style="width: 0%;"></div>
+            </div>
+        </section>
+
+        <!-- Quadro de Colunas -->
+        <section class="quadro-kanban">
+            
+            <div class="coluna">
+                <h2>A Fazer</h2>
+                <div class="lista-tarefas" id="coluna-fazer"></div>
+            </div>
+
+            <div class="coluna">
+                <h2>Em Andamento</h2>
+                <div class="lista-tarefas" id="coluna-andamento"></div>
+            </div>
+
+            <div class="coluna">
+                <h2>Concluído</h2>
+                <div class="lista-tarefas" id="coluna-concluido"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
